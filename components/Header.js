@@ -1,5 +1,5 @@
 import Image from "next/image";
-import headerStyles from "../styles/Header.module.css";
+import headerStyles from "../styles/ComponentsStyle/Header.module.css";
 
 const Header = () => {
   return (

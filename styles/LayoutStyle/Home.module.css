@@ -1,0 +1,19 @@
+.banner {
+  width: 100vw;
+  height: 500px;
+  background-color: #f2f2f2;
+}
+
+.itemContainer {
+  border: 1px solid;
+  padding: 80px 320px 180px 319px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemList {
+  width: 1280px;
+  height: 838px;
+  border: 1px solid;
+}

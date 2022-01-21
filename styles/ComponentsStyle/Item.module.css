@@ -1,0 +1,51 @@
+.itemContainer {
+  width: 380px;
+  height: 490px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.itemContainer img {
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+}
+
+.desc {
+  width: 380px;
+  height: 94px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.desc small {
+  color: #767676;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.desc strong {
+  color: #000;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.desc span {
+  color: #000;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+.desc span::after {
+  content: " 원";
+  color: #000;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  vertical-align: 1.5px;
+}
