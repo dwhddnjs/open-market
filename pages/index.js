@@ -14,6 +14,7 @@ export default function Home({ items }) {
             items.map((item) => (
               <Item
                 key={item.product_id}
+                id={item.product_id}
                 name={item.product_name}
                 img={item.image}
                 store={item.seller_store}
