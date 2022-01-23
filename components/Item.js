@@ -5,7 +5,7 @@ import Link from "next/link";
 const Item = ({ name, img, price, store, id }) => {
   return (
     <li className={itemStyles.itemContainer}>
-      <Link href={`/products/${id}`} id={id} name={name}>
+      <Link href={`/products/${id}`}>
         <a>
           <img src={img} alt="" width={380} height={380} />
           <div className={itemStyles.desc}>
