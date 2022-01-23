@@ -16,7 +16,8 @@ const Post = ({ id, name }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async (context) => {
+  const { id } = context.params;
   const res = await Axios.get("http://3.38.108.122:8000/products/");
   const item = res.data.results;
   return {
@@ -25,32 +26,22 @@ export const getServerSideProps = async () => {
     },
   };
 };
-// export const getStaticProps = async () => {
-//   // const { id } = context.params;
-//   const res = await Axios.get("http://3.38.108.122:8000/products/");
-//   const item = res.data.results;
-//   return {
-//     props: {
-//       item,
-//     },
-//   };
-// };
 
-// export const getStaticPaths = async () => {
-//   const res = await Axios.get("http://3.38.108.122:8000/products");
-//   const item = res.data.results;
-//   console.log(item);
+export const getStaticPaths = async () => {
+  const res = await Axios.get("http://3.38.108.122:8000/products");
+  const item = res.data.results;
+  console.log(item);
 
-//   const ids = item.map((item) => item.product_id);
-//   const paths = ids.map((id) => {
-//     return {
-//       params: { id: id.toString() },
-//     };
-//   });
-//   return {
-//     paths: paths,
-//     fallback: false,
-//   };
-// };
+  const ids = item.map((item) => item.product_id);
+  const paths = ids.map((id) => {
+    return {
+      params: { id: id.toString() },
+    };
+  });
+  return {
+    paths: paths,
+    fallback: false,
+  };
+};
 
 export default Post;
