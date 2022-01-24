@@ -1,88 +1,55 @@
 import Link from "next/link";
 import Axios from "axios";
+import Header from "../../components/Header";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-const Post = () => {
+const Post = ({ items }) => {
   const router = useRouter();
   const { id } = router.query;
   const [item, setItem] = useState(null);
 
-  const fetchData = async () => {
-    const res = await Axios.get(`http://3.38.108.122:8000/products/`);
-    const items = await res.data.results;
-    items.forEach((el) => {
-      if (el.product_id.toString() === id) {
+  items.forEach((el) => {
+    if (el.product_id.toString() === id) {
+      useEffect(() => {
         setItem(el);
-      }
-    });
-  };
-
-  useEffect(() => {
-    fetchData();
+      });
+    }
   }, []);
 
-  console.log(item);
-
   return (
-    <div>
+    <>
+      <Header />
       {item && (
-        <div>
-          <img src={item.image} alt="" />
-          <div>
-            <small>{item.seller_store}</small>
-            <strong>{item.product_name}</strong>
-            <span>{item.price}</span>
-            <div>{item.product_name}</div>
+        <div className="productBody">
+          <img src={item.image} alt="" width={600} height={600} />
+          <div className="productDesc">
+            <div className="productInfo">
+              <small>{item.seller_store}</small>
+              <strong>{item.product_name}</strong>
+              <span>{item.price}</span>
+              <div>{item.product_name}</div>
+            </div>
           </div>
         </div>
       )}
       <Link href="/">
         <a> goback</a>
       </Link>
-    </div>
+    </>
   );
 };
 
-// const Post = ({ id, name }) => {
-//   return (
-//     <div>
-//       <h1>{name}</h1>
-//       <h1>{id}</h1>
+export const getServerSideProps = async () => {
+  const res = await Axios.get(`http://3.38.108.122:8000/products/`);
+  const items = await res.data.results;
+  console.log(items);
 
-//       <Link href="/">
-//         <a> goback</a>
-//       </Link>
-//     </div>
-//   );
-// };
-
-// export const getStaticPaths = async () => {
-//   const res = await Axios.get("http://3.38.108.122:8000/products");
-//   const item = res.data.results;
-
-//   const ids = item.map((item) => item.product_id);
-//   const paths = ids.map((id) => {
-//     return {
-//       params: { id: id.toString() },
-//     };
-//   });
-//   return {
-//     paths: paths,
-//     fallback: false,
-//   };
-// };
-
-// export const getStaticProps = async (context) => {
-//   const id = context.params.id;
-//   console.log(context);
-//   const res = await Axios.get(`http://3.38.108.122:8000/products/`);
-//   const item = res.data.results;
-//   return {
-//     props: {
-//       item,
-//     },
-//   };
-// };
+  return {
+    props: {
+      items,
+    },
+  };
+};
 
 export default Post;

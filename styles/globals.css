@@ -145,3 +145,17 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.productBody {
+  border: 1px solid;
+  margin: 80px 320px 0 320px;
+  display: flex;
+}
+
+.productBody img {
+  margin-right: 50px;
+}
+
+.productDesc {
+  border: 1px solid;
+}
