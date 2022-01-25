@@ -147,7 +147,6 @@ table {
 }
 
 .productBody {
-  border: 1px solid;
   margin: 80px 320px 0 320px;
   display: flex;
 }
@@ -158,4 +157,69 @@ table {
 
 .productDesc {
   border: 1px solid;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.productInfo {
+  width: 350px;
+  height: 149px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 138px;
+  box-sizing: border-box;
+}
+
+.productInfo small {
+  font-size: 18px;
+  line-height: 23px;
+  color: #767676;
+}
+
+.productInfo strong {
+  font-size: 36px;
+  line-height: 45px;
+  color: #000;
+}
+
+.productInfo span {
+  font-size: 36px;
+  line-height: 45px;
+  color: #000;
+  font-weight: 700;
+}
+
+.productInfo span::after {
+  content: " 원";
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 400;
+  vertical-align: 3px;
+}
+
+.productDelivery {
+  width: 135px;
+  height: 20px;
+  /* border: 1px solid; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  color: #767676;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.productDelivery li:first-child::after {
+  content: "/";
+  margin-left: 8px;
+}
+
+.countContainer {
+  width: 630px;
+  height: 110px;
+  border-top: 2px solid #c4c4c4;
+  border-bottom: 2px solid #c4c4c4;
+  padding: 30px 0 30px 0;
 }

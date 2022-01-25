@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import itemStyles from "../styles/ComponentsStyle/Item.module.css";
 import Link from "next/link";
 const Item = ({ name, img, price, store, id }) => {
