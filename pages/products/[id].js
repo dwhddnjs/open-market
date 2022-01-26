@@ -9,7 +9,7 @@ const Post = ({ items }) => {
   const router = useRouter();
   const { id } = router.query;
   const [item, setItem] = useState(null);
-  
+  const [count, setCount] = useState(0);
 
   items.forEach((el) => {
     if (el.product_id.toString() === id) {
@@ -36,14 +36,24 @@ const Post = ({ items }) => {
               <li>무료배송</li>
             </ul>
             <div className="countContainer">
-              <Counter />
+              <Counter count={count} setCount={setCount} />
+            </div>
+            <div className="productPrice">
+              <span>총 상품 금액</span>
+              <div className="productPay">
+                <small>
+                  총 수량 <b>{count}</b>개
+                </small>
+                <strong>{item.price}</strong>
+              </div>
+            </div>
+            <div className="ProductBtn">
+              <button className="btnBuy">바로 구매</button>
+              <button className="btnCart">장바구니</button>
             </div>
           </div>
         </div>
       )}
-      <Link href="/">
-        <a> goback</a>
-      </Link>
     </>
   );
 };
