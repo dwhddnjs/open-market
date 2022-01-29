@@ -2,13 +2,16 @@ import Axios from "axios";
 import Header from "../../components/Header";
 import Counter from "../../components/Counter";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Post = ({ items }) => {
   const router = useRouter();
   const { id } = router.query;
   const [item, setItem] = useState(null);
   const [count, setCount] = useState(0);
+  const pickTab = useRef();
+  const [currentTab, setCurrentTab] = useState(null);
+  const [prevTab, setPrevTab] = useState(null);
 
   items.forEach((el) => {
     if (el.product_id.toString() === id) {
@@ -17,6 +20,26 @@ const Post = ({ items }) => {
       }, []);
     }
   });
+
+  const clickTab = (e) => {
+    setCurrentTab(e.target.id);
+    console.log(e.target.id);
+  };
+
+  useEffect(() => {
+    if (currentTab !== null) {
+      console.log("현재");
+      let current = document.getElementById(currentTab);
+      current.style.borderBottom = "6px solid #21bf48";
+    }
+
+    if (prevTab !== null) {
+      console.log("그전");
+      let prev = document.getElementById(prevTab);
+      prev.style.borderBottom = "6px solid #e0e0e0";
+    }
+    setPrevTab(currentTab);
+  }, [currentTab]);
 
   return (
     <>
@@ -46,13 +69,27 @@ const Post = ({ items }) => {
                 <strong>{item.price}</strong>
               </div>
             </div>
-            <div className="ProductBtn">
+            <div className="productBtn">
               <button className="btnBuy">바로 구매</button>
               <button className="btnCart">장바구니</button>
             </div>
           </div>
         </div>
       )}
+      <ul ref={pickTab} className="productTab">
+        <li onClick={clickTab} className="tabLi" id="btn">
+          버튼
+        </li>
+        <li onClick={clickTab} className="tabLi" id="review">
+          리뷰
+        </li>
+        <li onClick={clickTab} className="tabLi" id="QnA">
+          Q&A
+        </li>
+        <li onClick={clickTab} className="tabLi" id="change">
+          반품/교체
+        </li>
+      </ul>
     </>
   );
 };
