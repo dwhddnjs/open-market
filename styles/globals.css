@@ -159,7 +159,6 @@ table {
 }
 
 .productDesc {
-  /* border: 1px solid; */
   width: 100%;
   box-sizing: border-box;
 }
@@ -204,7 +203,6 @@ table {
 .productDelivery {
   width: 135px;
   height: 20px;
-  /* border: 1px solid; */
   display: flex;
   align-items: center;
   justify-content: space-between;

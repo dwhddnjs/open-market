@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Axios from "axios";
 import Header from "../../components/Header";
 import Counter from "../../components/Counter";
