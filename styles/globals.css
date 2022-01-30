@@ -323,7 +323,6 @@ table {
 .productTab {
   display: flex;
   margin: 140px 320px 0 320px;
-  width: 71.5%;
   box-sizing: border-box;
   height: 60px;
   align-items: center;
@@ -331,6 +330,7 @@ table {
   color: #767676;
   font-size: 18px;
   line-height: 22px;
+  font-weight: 500;
 }
 
 .tabLi {

@@ -27,16 +27,30 @@ const Post = ({ items }) => {
   };
 
   useEffect(() => {
+    if ((currentTab === null) & (prevTab === null)) {
+      let btn = document.getElementById("btn");
+      btn.style.borderBottom = "6px solid #21bf48";
+      btn.style.fontWeight = "700";
+      btn.style.color = "#21bf48";
+    } else {
+      let btn = document.getElementById("btn");
+      btn.style.borderBottom = "6px solid #e0e0e0";
+      btn.style.fontWeight = "500";
+      btn.style.color = "#767676";
+    }
+
     if (currentTab !== null) {
-      console.log("현재");
       let current = document.getElementById(currentTab);
       current.style.borderBottom = "6px solid #21bf48";
+      current.style.fontWeight = "700";
+      current.style.color = "#21bf48";
     }
 
     if (prevTab !== null) {
-      console.log("그전");
       let prev = document.getElementById(prevTab);
       prev.style.borderBottom = "6px solid #e0e0e0";
+      prev.style.fontWeight = "500";
+      prev.style.color = "#767676";
     }
     setPrevTab(currentTab);
   }, [currentTab]);
