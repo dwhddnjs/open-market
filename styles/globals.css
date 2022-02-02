@@ -300,6 +300,7 @@ table {
   color: #fff;
   line-height: 22px;
   border: none;
+  cursor: pointer;
 }
 
 .btnCart {
@@ -313,6 +314,7 @@ table {
   font-weight: 700;
   line-height: 22px;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .productTab {
