@@ -241,7 +241,6 @@ table {
 .productPay {
   width: 240px;
   display: flex;
-  /* border: 1px solid; */
   align-items: center;
   box-sizing: border-box;
 }

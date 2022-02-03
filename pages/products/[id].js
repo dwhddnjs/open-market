@@ -2,14 +2,13 @@ import Axios from "axios";
 import Header from "../../components/Header";
 import Counter from "../../components/Counter";
 import { useRouter } from "next/router";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 const Post = ({ items }) => {
   const router = useRouter();
   const { id } = router.query;
   const [item, setItem] = useState(null);
   const [count, setCount] = useState(0);
-  const pickTab = useRef();
   const [currentTab, setCurrentTab] = useState(null);
   const [prevTab, setPrevTab] = useState(null);
 
@@ -23,7 +22,6 @@ const Post = ({ items }) => {
 
   const clickTab = (e) => {
     setCurrentTab(e.target.id);
-    console.log(e.target.id);
   };
 
   useEffect(() => {
@@ -90,7 +88,7 @@ const Post = ({ items }) => {
           </div>
         </div>
       )}
-      <ul ref={pickTab} className="productTab">
+      <ul className="productTab">
         <li onClick={clickTab} className="tabLi" id="btn">
           버튼
         </li>
