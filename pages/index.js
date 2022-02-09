@@ -4,7 +4,6 @@ import homeStyles from "../styles/LayoutStyle/Home.module.css";
 import Axios from "axios";
 
 export default function Home({ items }) {
-  console.log(process.env.REACT_APP_API_URL);
   return (
     <>
       <Header />
@@ -29,7 +28,8 @@ export default function Home({ items }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await Axios.get("http://13.209.150.154:8000/products");
+  const API = process.env.URL;
+  const res = await Axios.get(`${API}/products`);
   const items = await res.data.results;
   return {
     props: {

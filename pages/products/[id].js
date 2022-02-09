@@ -107,7 +107,8 @@ const Post = ({ items }) => {
 };
 
 export const getServerSideProps = async () => {
-  const res = await Axios.get(`http://3.38.108.122:8000/products/`);
+  const API = process.env.URL;
+  const res = await Axios.get(`${API}/products`);
   const items = await res.data.results;
   console.log(items);
 
