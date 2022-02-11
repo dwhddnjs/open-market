@@ -1,6 +1,6 @@
 import CounterStyles from "../styles/ComponentsStyle/Counter.module.css";
 import Image from "next/image";
-import React, { useState } from "react";
+
 const Counter = ({ count, setCount }) => {
   const addController = () => {
     setCount((count = count + 1));
