@@ -15,14 +15,18 @@ const Header = () => {
         </div>
       </div>
       <ul className={headerStyles.ul}>
-        <li>
-          <Image src="/cart.png" width={32} height={32} />
-          <span>장바구니</span>
-        </li>
-        <li>
-          <Image src="/user.png" width={32} height={32} />
-          <span>마이페이지</span>
-        </li>
+        <Link href="/cart">
+          <li>
+            <Image src="/cart.png" width={32} height={32} />
+            <span>장바구니</span>
+          </li>
+        </Link>
+        <Link href="/myPage">
+          <li>
+            <Image src="/user.png" width={32} height={32} />
+            <span>마이페이지</span>
+          </li>
+        </Link>
       </ul>
     </header>
   );
