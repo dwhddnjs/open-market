@@ -28,6 +28,11 @@
   line-height: 22px;
   margin-bottom: 200px;
 }
+
+.detail li input {
+  border-radius: 10px;
+}
+
 .desc {
   display: flex;
   flex-direction: column;
