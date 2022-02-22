@@ -239,7 +239,7 @@ table {
 }
 
 .productPay {
-  width: 240px;
+  width: fit-content;
   display: flex;
   align-items: center;
   box-sizing: border-box;
