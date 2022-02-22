@@ -26,7 +26,7 @@
   border-radius: 10px;
   font-size: 18px;
   line-height: 22px;
-  margin-bottom: 200px;
+  margin-bottom: 35px;
 }
 
 .detail li input {
@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
 }
 
 .desc strong {
