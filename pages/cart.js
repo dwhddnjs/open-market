@@ -19,6 +19,8 @@ function cart() {
         </ul>
         <div className={cartStyles.desc}>
           <CartItem />
+          <CartItem />
+          <CartItem />
           {/* <strong>장바구니에 담긴 상품이 없습니다.</strong>
           <small>원하는 상품을 장바구니에 담에 보세요!</small> */}
         </div>
