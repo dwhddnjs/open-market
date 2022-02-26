@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CartItem from "../components/CartItem";
 import Header from "../components/Header";
 import cartStyles from "../styles/LayoutStyle/Cart.module.css";
 
 function cart() {
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const localItems = JSON.parse(localStorage.getItem("item"));
+    setCartItems(()=> {
+      
+    });
+  }, []);
+
+  console.log(cartItems);
+
   return (
     <>
       <Header />
@@ -18,9 +29,7 @@ function cart() {
           <li>상품금액</li>
         </ul>
         <div className={cartStyles.desc}>
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {/* {cartItems && cartItems.map((el) => <CartItem cart={el} />)} */}
           {/* <strong>장바구니에 담긴 상품이 없습니다.</strong>
           <small>원하는 상품을 장바구니에 담에 보세요!</small> */}
         </div>

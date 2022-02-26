@@ -24,6 +24,11 @@ const Post = ({ items }) => {
     setCurrentTab(e.target.id);
   };
 
+  const saveLocal = () => {
+    localStorage.setItem("item", JSON.stringify(item));
+    console.log(localStorage.item);
+  };
+
   useEffect(() => {
     if ((currentTab === null) & (prevTab === null)) {
       let btn = document.getElementById("btn");
@@ -83,7 +88,9 @@ const Post = ({ items }) => {
             </div>
             <div className="productBtn">
               <button className="btnBuy">바로 구매</button>
-              <button className="btnCart">장바구니</button>
+              <button className="btnCart" onClick={saveLocal}>
+                장바구니
+              </button>
             </div>
           </div>
         </div>
