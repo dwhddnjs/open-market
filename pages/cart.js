@@ -6,13 +6,6 @@ import cartStyles from "../styles/LayoutStyle/Cart.module.css";
 function cart() {
   const [cartItems, setCartItems] = useState([]);
 
-  useEffect(() => {
-    const localItems = JSON.parse(localStorage.getItem("item"));
-    setCartItems(()=> {
-      
-    });
-  }, []);
-
   console.log(cartItems);
 
   return (

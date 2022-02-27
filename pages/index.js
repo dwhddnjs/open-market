@@ -2,8 +2,13 @@ import Header from "../components/Header";
 import Item from "../components/Item";
 import homeStyles from "../styles/LayoutStyle/Home.module.css";
 import Axios from "axios";
+import { useEffect } from "react";
 
 export default function Home({ items }) {
+  useEffect(() => {
+    localStorage.setItem("item", JSON.stringify([]));
+  });
+
   return (
     <>
       <Header />
