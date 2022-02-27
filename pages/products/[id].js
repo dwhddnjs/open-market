@@ -25,7 +25,7 @@ const Post = ({ items }) => {
   };
 
   const saveLocal = () => {
-    localStorage.setItem("item", JSON.stringify(item));
+    localStorage.setItem("item", JSON.stringify([item]));
     console.log(localStorage.item);
   };
 
