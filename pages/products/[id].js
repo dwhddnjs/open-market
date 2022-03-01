@@ -80,7 +80,7 @@ const Post = ({ items }) => {
               <li>무료배송</li>
             </ul>
             <div className="countContainer">
-              <Counter />
+              <Counter id={item.product_id} />
             </div>
             <div className="productPrice">
               <span>총 상품 금액</span>

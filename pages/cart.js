@@ -36,6 +36,7 @@ function cart() {
                 seller={el.seller}
                 store={el.seller_store}
                 name={el.product_name}
+                id={el.product_id}
               />
             ))
           ) : (

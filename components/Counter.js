@@ -2,9 +2,10 @@ import CounterStyles from "../styles/ComponentsStyle/Counter.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const Counter = () => {
+const Counter = ({ id }) => {
+  console.log(id);
   const [count, setCount] = useState(
-    JSON.parse(localStorage.getItem("count")) || 0
+    JSON.parse(localStorage.getItem(`product${id}`)) || 0
   );
   const addController = () => {
     setCount((count = count + 1));
@@ -15,7 +16,7 @@ const Counter = () => {
   };
 
   useEffect(() => {
-    JSON.stringify(localStorage.setItem("count", count));
+    JSON.stringify(localStorage.setItem(`product${id}`, count));
   }, [count]);
 
   return (
