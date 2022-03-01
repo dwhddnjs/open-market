@@ -25,20 +25,13 @@ const Post = ({ items }) => {
   };
 
   const saveLocal = () => {
-    if (!localStorage.item) {
-      localStorage.setItem("item", JSON.stringify([item]));
-      console.log("새로 생성", localStorage.item);
-      return;
-    }
+    let result = [];
 
-    if (localStorage.item) {
-      let result = JSON.parse(localStorage.getItem("item"));
-      console.log("가져오기", result);
-    }
+    result = JSON.parse(sessionStorage.getItem("item")) || [];
 
-    // result.push(item);
-    // console.log("2", result);
-    // localStorage.setItem("item", JSON.stringify(result));
+    result.push(item);
+
+    sessionStorage.setItem("item", JSON.stringify(result));
   };
 
   useEffect(() => {
