@@ -31,8 +31,11 @@ const Post = ({ items }) => {
       return;
     }
 
-    let result = JSON.parse(localStorage.getItem("item"));
-    console.log("가져오기", result);
+    if (localStorage.item) {
+      let result = JSON.parse(localStorage.getItem("item"));
+      console.log("가져오기", result);
+    }
+
     // result.push(item);
     // console.log("2", result);
     // localStorage.setItem("item", JSON.stringify(result));
