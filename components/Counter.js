@@ -1,7 +1,11 @@
 import CounterStyles from "../styles/ComponentsStyle/Counter.module.css";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const Counter = ({ count, setCount }) => {
+const Counter = () => {
+  const [count, setCount] = useState(
+    JSON.parse(localStorage.getItem("count")) || 0
+  );
   const addController = () => {
     setCount((count = count + 1));
   };
@@ -9,6 +13,10 @@ const Counter = ({ count, setCount }) => {
   const minController = () => {
     count > 0 && setCount((count = count - 1));
   };
+
+  useEffect(() => {
+    JSON.stringify(localStorage.setItem("count", count));
+  }, [count]);
 
   return (
     <ul className={CounterStyles.counter}>

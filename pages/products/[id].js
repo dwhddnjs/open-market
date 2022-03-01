@@ -8,7 +8,7 @@ const Post = ({ items }) => {
   const router = useRouter();
   const { id } = router.query;
   const [item, setItem] = useState(null);
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [currentTab, setCurrentTab] = useState(null);
   const [prevTab, setPrevTab] = useState(null);
 
@@ -27,11 +27,11 @@ const Post = ({ items }) => {
   const saveLocal = () => {
     let result = [];
 
-    result = JSON.parse(sessionStorage.getItem("item")) || [];
+    result = JSON.parse(localStorage.getItem("item")) || [];
 
     result.push(item);
 
-    sessionStorage.setItem("item", JSON.stringify(result));
+    localStorage.setItem("item", JSON.stringify(result));
   };
 
   useEffect(() => {
@@ -80,13 +80,13 @@ const Post = ({ items }) => {
               <li>무료배송</li>
             </ul>
             <div className="countContainer">
-              <Counter count={count} setCount={setCount} />
+              <Counter />
             </div>
             <div className="productPrice">
               <span>총 상품 금액</span>
               <div className="productPay">
                 <small>
-                  총 수량 <b>{count}</b>개
+                  총 수량 <b>0</b>개
                 </small>
                 <strong>{item.price}</strong>
               </div>

@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Counter from "./Counter";
 import cartItemStyles from "../styles/ComponentsStyle/CartItem.module.css";
 
-const CartItem = () => {
+const CartItem = ({ img, price, store, name }) => {
   return (
     <div className={cartItemStyles.container}>
       <input type="checkbox" />
-      <img src="" alt="" width={160} height={160} />
+      <img src={img} alt="" width={160} height={160} />
       <div className={cartItemStyles.content}>
         <div className={cartItemStyles.desc}>
           <div className={cartItemStyles.detail}>
-            <small>백엔드글로벌</small>
-            <h4>딥러닝 개발자 무릎 담요</h4>
-            <strong>17,500원</strong>
+            <small>{store}</small>
+            <h4>{name}</h4>
+            <strong>{price}원</strong>
           </div>
           <ul>
             <li>택배배송</li>
@@ -24,7 +24,7 @@ const CartItem = () => {
           <Counter />
         </div>
         <div className={cartItemStyles.price}>
-          <span>17,500원</span>
+          <span>{price}원</span>
           <button>주문하기</button>
         </div>
       </div>

@@ -5,10 +5,6 @@ import Axios from "axios";
 import { useEffect } from "react";
 
 export default function Home({ items }) {
-  useEffect(() => {
-    localStorage.setItem("item", JSON.stringify([]));
-  });
-
   return (
     <>
       <Header />
