@@ -38,6 +38,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 80px;
 }
 
 .desc strong {
@@ -47,6 +48,124 @@
   margin-bottom: 17px;
 }
 .desc small {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  color: #767676;
+}
+
+.total {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #c4c4c4;
+  margin-bottom: 40px;
+}
+
+.specific {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.specific ul {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.specific ul li {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+}
+
+.specific ul li:last-child {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  margin-top: 12px;
+}
+
+.specific ul li:last-child::after {
+  content: " 원";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+}
+
+.cal {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.price small {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+
+.price strong {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 45px;
+  color: #eb5757;
+}
+
+.price strong::after {
+  content: " 원";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  vertical-align: 1px;
+}
+
+.order {
+  width: 220px;
+  height: 68px;
+  background-color: #21bf48;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.empty {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty strong {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  margin-bottom: 17px;
+}
+
+.empty small {
   font-size: 14px;
   line-height: 17px;
   font-weight: 400;

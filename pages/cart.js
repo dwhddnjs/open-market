@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CartItem from "../components/CartItem";
 import Header from "../components/Header";
 import cartStyles from "../styles/LayoutStyle/Cart.module.css";
+import Image from "next/image";
 
 function cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -25,27 +26,57 @@ function cart() {
           <li>수량</li>
           <li>상품금액</li>
         </ul>
-        <div className={cartStyles.desc}>
-          {cartItems ? (
-            cartItems.map((el) => (
-              <CartItem
-                key={el.product_id}
-                img={el.image}
-                price={el.price}
-                info={el.product_info}
-                seller={el.seller}
-                store={el.seller_store}
-                name={el.product_name}
-                id={el.product_id}
-              />
-            ))
-          ) : (
-            <>
-              <strong>장바구니에 담긴 상품이 없습니다.</strong>
-              <small>원하는 상품을 장바구니에 담에 보세요!</small>
-            </>
-          )}
-        </div>
+        {!cartItems ? (
+          <div className={cartStyles.empty}>
+            <strong>장바구니에 담긴 상품이 없습니다.</strong>
+            <small>원하는 상품을 장바구니에 담에 보세요!</small>
+          </div>
+        ) : (
+          <>
+            <div className={cartStyles.desc}>
+              {cartItems &&
+                cartItems.map((el) => (
+                  <CartItem
+                    key={el.product_id}
+                    img={el.image}
+                    price={el.price}
+                    info={el.product_info}
+                    seller={el.seller}
+                    store={el.seller_store}
+                    name={el.product_name}
+                    id={el.product_id}
+                  />
+                ))}
+            </div>
+            <div className={cartStyles.total}>
+              <div className={cartStyles.specific}>
+                <ul>
+                  <li>총 상품 금액</li>
+                  <li>46,500</li>
+                </ul>
+                <div className={cartStyles.cal}>
+                  <Image src="/minus.png" width={34} height={34} />
+                </div>
+                <ul>
+                  <li>상품 할인</li>
+                  <li>0</li>
+                </ul>
+                <div className={cartStyles.cal}>
+                  <Image src="/plus.png" width={34} height={34} />
+                </div>
+                <ul>
+                  <li>배송비</li>
+                  <li>0</li>
+                </ul>
+                <div className={cartStyles.price}>
+                  <small>결제 예정 금액</small>
+                  <strong>46,500</strong>
+                </div>
+              </div>
+            </div>
+            <button className={cartStyles.order}>주문하기</button>
+          </>
+        )}
       </div>
     </>
   );

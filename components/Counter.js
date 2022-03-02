@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Counter = ({ id }) => {
-  console.log(id);
   const [count, setCount] = useState(
     JSON.parse(localStorage.getItem(`product${id}`)) || 0
   );
