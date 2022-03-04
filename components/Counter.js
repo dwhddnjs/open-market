@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const Counter = ({ id }) => {
   const [count, setCount] = useState(
-    JSON.parse(localStorage.getItem(`product${id}`)) || 0
+    JSON.parse(localStorage.getItem(`product${id}`)) || 1
   );
   const addController = () => {
     setCount((count = count + 1));

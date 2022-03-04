@@ -4,6 +4,10 @@ import Counter from "./Counter";
 import cartItemStyles from "../styles/ComponentsStyle/CartItem.module.css";
 
 const CartItem = ({ img, price, store, name, id }) => {
+  const deleteItem = (id) => {
+    console.log(id);
+  };
+
   return (
     <div className={cartItemStyles.container}>
       <input type="checkbox" />
@@ -29,7 +33,12 @@ const CartItem = ({ img, price, store, name, id }) => {
         </div>
       </div>
       <div className={cartItemStyles.delete}>
-        <Image src="/delete.png" width={22} height={22} />
+        <Image
+          src="/Delete.png"
+          width={22}
+          height={22}
+          // onClick={deleteItem(id)}
+        />
       </div>
     </div>
   );
