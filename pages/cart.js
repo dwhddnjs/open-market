@@ -9,9 +9,8 @@ function cart() {
 
   useEffect(() => {
     const getItem = JSON.parse(localStorage.getItem("item"));
-    console.log(getItem);
     setCartItems(getItem);
-  }, []);
+  }, [cartItems]);
 
   return (
     <>

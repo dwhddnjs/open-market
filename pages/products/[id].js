@@ -8,7 +8,6 @@ const Post = ({ items }) => {
   const router = useRouter();
   const { id } = router.query;
   const [item, setItem] = useState(null);
-  // const [count, setCount] = useState(0);
   const [currentTab, setCurrentTab] = useState(null);
   const [prevTab, setPrevTab] = useState(null);
 
