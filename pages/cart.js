@@ -5,12 +5,13 @@ import cartStyles from "../styles/LayoutStyle/Cart.module.css";
 import Image from "next/image";
 
 function cart() {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(null);
 
   useEffect(() => {
-    const getItem = JSON.parse(localStorage.getItem("item"));
+    const getItem = JSON.parse(localStorage.getItem("item") || []);
+    console.log(getItem);
     setCartItems(getItem);
-  }, [cartItems]);
+  }, []);
 
   return (
     <>
