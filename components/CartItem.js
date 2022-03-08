@@ -3,14 +3,7 @@ import Image from "next/image";
 import Counter from "./Counter";
 import cartItemStyles from "../styles/ComponentsStyle/CartItem.module.css";
 
-const CartItem = ({ img, price, store, name, id }) => {
-  const deleteItem = (id) => {
-    let arr = JSON.parse(localStorage.getItem("item"));
-    let result = arr.filter((el) => el.product_id === id);
-    JSON.stringify(localStorage.setItem("item", result));
-    localStorage.removeItem(`product${id}`);
-  };
-
+const CartItem = ({ img, price, store, name, id, deleteItem }) => {
   return (
     <div className={cartItemStyles.container}>
       <input type="checkbox" />
@@ -35,8 +28,13 @@ const CartItem = ({ img, price, store, name, id }) => {
           <button>주문하기</button>
         </div>
       </div>
-      <div className={cartItemStyles.delete} onClick={deleteItem(id)}>
-        <Image src="/Delete.png" width={22} height={22} />
+      <div className={cartItemStyles.delete}>
+        <Image
+          src="/Delete.png"
+          width={22}
+          height={22}
+          onClick={() => deleteItem(id)}
+        />
       </div>
     </div>
   );

@@ -5,13 +5,23 @@ import cartStyles from "../styles/LayoutStyle/Cart.module.css";
 import Image from "next/image";
 
 function cart() {
-  const [cartItems, setCartItems] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    const getItem = JSON.parse(localStorage.getItem("item") || []);
+    const getItem = JSON.parse(localStorage.getItem("item"));
     console.log(getItem);
     setCartItems(getItem);
-  }, []);
+  }, [cartItems]);
+
+  const deleteItem = (id) => {
+    let arr = JSON.parse(localStorage.getItem("item"));
+    console.log("배열", arr);
+    let result = arr.filter((el) => el.product_id !== id);
+    console.log("필터", result);
+    JSON.stringify(localStorage.setItem("item", JSON.stringify(result)));
+    console.log("결과", localStorage.item);
+    localStorage.removeItem(`product${id}`);
+  };
 
   return (
     <>
@@ -45,6 +55,7 @@ function cart() {
                     store={el.seller_store}
                     name={el.product_name}
                     id={el.product_id}
+                    deleteItem={deleteItem}
                   />
                 ))}
             </div>

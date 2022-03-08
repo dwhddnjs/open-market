@@ -32,6 +32,7 @@ const Post = ({ items }) => {
 
     localStorage.setItem("item", JSON.stringify(result));
   };
+  
 
   useEffect(() => {
     if ((currentTab === null) & (prevTab === null)) {
