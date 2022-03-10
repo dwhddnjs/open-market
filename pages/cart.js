@@ -21,6 +21,16 @@ function cart() {
     setCartItems(JSON.parse(localStorage.getItem("item")));
   };
 
+  const totalPrice = () => {
+    const total = JSON.parse(localStorage.getItem("item"));
+    console.log(total);
+    let result = 0;
+    total.forEach((el) => {
+      result = result + el.price;
+    });
+    return result;
+  };
+
   return (
     <>
       <Header />
@@ -61,7 +71,7 @@ function cart() {
               <div className={cartStyles.specific}>
                 <ul>
                   <li>총 상품 금액</li>
-                  <li>46,500</li>
+                  <li>{totalPrice()}</li>
                 </ul>
                 <div className={cartStyles.cal}>
                   <Image src="/minus.png" width={34} height={34} />
@@ -79,7 +89,7 @@ function cart() {
                 </ul>
                 <div className={cartStyles.price}>
                   <small>결제 예정 금액</small>
-                  <strong>46,500</strong>
+                  <strong>{totalPrice()}</strong>
                 </div>
               </div>
             </div>
