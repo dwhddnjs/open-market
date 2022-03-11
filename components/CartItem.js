@@ -3,7 +3,15 @@ import Image from "next/image";
 import Counter from "./Counter";
 import cartItemStyles from "../styles/ComponentsStyle/CartItem.module.css";
 
-const CartItem = ({ img, price, store, name, id, deleteItem, totalPrice }) => {
+const CartItem = ({
+  img,
+  price,
+  store,
+  name,
+  id,
+  deleteItem,
+  setItemPrice,
+}) => {
   return (
     <div className={cartItemStyles.container}>
       <input type="checkbox" />
@@ -21,7 +29,7 @@ const CartItem = ({ img, price, store, name, id, deleteItem, totalPrice }) => {
           </ul>
         </div>
         <div className={cartItemStyles.counter}>
-          <Counter id={id} totalPrice={totalPrice} />
+          <Counter id={id} setItemPrice={setItemPrice} />
         </div>
         <div className={cartItemStyles.price}>
           <span>{price}원</span>

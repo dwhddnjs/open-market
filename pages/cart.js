@@ -12,7 +12,18 @@ function cart() {
     const getItem = JSON.parse(localStorage.getItem("item"));
     console.log(getItem);
     setCartItems(getItem);
-  }, []);
+
+    const total = JSON.parse(localStorage.getItem("item"));
+    console.log(total);
+    let result = 0;
+    total &&
+      total.forEach((el) => {
+        let count = JSON.parse(localStorage.getItem(`product${el.product_id}`));
+        console.log(count);
+        result = result + el.price * count;
+      });
+    setItemPrice(result);
+  }, [itemPrice]);
 
   const deleteItem = (id) => {
     let arr = JSON.parse(localStorage.getItem("item"));
@@ -20,18 +31,7 @@ function cart() {
     JSON.stringify(localStorage.setItem("item", JSON.stringify(result)));
     localStorage.removeItem(`product${id}`);
     setCartItems(JSON.parse(localStorage.getItem("item")));
-  };
-
-  const totalPrice = () => {
-    const total = JSON.parse(localStorage.getItem("item"));
-    console.log(total);
-    let result = 0;
-    total.forEach((el) => {
-      let count = JSON.parse(localStorage.getItem(`product${el.product_id}`));
-      console.log(count);
-      result = result + el.price * count;
-    });
-    setItemPrice(result);
+    setItemPrice(0);
   };
 
   return (
@@ -67,7 +67,7 @@ function cart() {
                     name={el.product_name}
                     id={el.product_id}
                     deleteItem={deleteItem}
-                    totalPrice={totalPrice}
+                    setItemPrice={setItemPrice}
                   />
                 ))}
             </div>
