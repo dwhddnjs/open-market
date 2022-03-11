@@ -2,16 +2,18 @@ import CounterStyles from "../styles/ComponentsStyle/Counter.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const Counter = ({ id }) => {
+const Counter = ({ id, totalPrice }) => {
   const [count, setCount] = useState(
     JSON.parse(localStorage.getItem(`product${id}`)) || 1
   );
   const addController = () => {
     setCount((count = count + 1));
+    totalPrice();
   };
 
   const minController = () => {
     count > 0 && setCount((count = count - 1));
+    totalPrice();
   };
 
   useEffect(() => {

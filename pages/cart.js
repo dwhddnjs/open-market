@@ -6,6 +6,7 @@ import Image from "next/image";
 
 function cart() {
   const [cartItems, setCartItems] = useState([]);
+  const [itemPrice, setItemPrice] = useState(0);
 
   useEffect(() => {
     const getItem = JSON.parse(localStorage.getItem("item"));
@@ -26,9 +27,11 @@ function cart() {
     console.log(total);
     let result = 0;
     total.forEach((el) => {
-      result = result + el.price;
+      let count = JSON.parse(localStorage.getItem(`product${el.product_id}`));
+      console.log(count);
+      result = result + el.price * count;
     });
-    return result;
+    setItemPrice(result);
   };
 
   return (
@@ -64,6 +67,7 @@ function cart() {
                     name={el.product_name}
                     id={el.product_id}
                     deleteItem={deleteItem}
+                    totalPrice={totalPrice}
                   />
                 ))}
             </div>
@@ -71,7 +75,7 @@ function cart() {
               <div className={cartStyles.specific}>
                 <ul>
                   <li>총 상품 금액</li>
-                  <li>{totalPrice()}</li>
+                  <li>{itemPrice}</li>
                 </ul>
                 <div className={cartStyles.cal}>
                   <Image src="/minus.png" width={34} height={34} />
@@ -89,7 +93,7 @@ function cart() {
                 </ul>
                 <div className={cartStyles.price}>
                   <small>결제 예정 금액</small>
-                  <strong>{totalPrice()}</strong>
+                  <strong>{itemPrice}</strong>
                 </div>
               </div>
             </div>

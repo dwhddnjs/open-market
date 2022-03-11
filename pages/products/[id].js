@@ -31,8 +31,20 @@ const Post = ({ items }) => {
     result.push(item);
 
     localStorage.setItem("item", JSON.stringify(result));
+    JSON.stringify(localStorage.setItem(`product${id}`, 1));
   };
-  
+
+  const totalPrice = () => {
+    const total = JSON.parse(localStorage.getItem("item"));
+    console.log(total);
+    let result = 0;
+    total.forEach((el) => {
+      let count = JSON.parse(localStorage.getItem(`product${el.product_id}`));
+      console.log(count);
+      result = result + el.price * count;
+    });
+    return result;
+  };
 
   useEffect(() => {
     if ((currentTab === null) & (prevTab === null)) {
@@ -80,7 +92,7 @@ const Post = ({ items }) => {
               <li>무료배송</li>
             </ul>
             <div className="countContainer">
-              <Counter id={item.product_id} />
+              <Counter id={item.product_id} totalPrice={totalPrice} />
             </div>
             <div className="productPrice">
               <span>총 상품 금액</span>
