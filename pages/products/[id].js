@@ -122,7 +122,6 @@ export const getServerSideProps = async () => {
   const API = process.env.URL;
   const res = await Axios.get(`${API}/products`);
   const items = await res.data.results;
-  console.log(items);
 
   return {
     props: {

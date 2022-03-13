@@ -10,11 +10,9 @@ function cart() {
 
   useEffect(() => {
     const getItem = JSON.parse(localStorage.getItem("item"));
-    console.log(getItem);
     setCartItems(getItem);
 
     const total = JSON.parse(localStorage.getItem("item"));
-    console.log(total);
     let result = 0;
     total &&
       total.forEach((el) => {

@@ -5,11 +5,9 @@ import { useEffect, useState } from "react";
 const Counter = ({ id, setItemPrice }) => {
   const addPrice = () => {
     const total = JSON.parse(localStorage.getItem("item"));
-    console.log(total);
     let result = 0;
     total.forEach((el) => {
-      let count = JSON.parse(localStorage.getItem(`product${el.product_id}`));
-      console.log(count);
+      let count = JSON.parse(localStorage.getItem(`product${el.product_id}`));      console.log(count);
       result = result + el.price * count;
     });
     setItemPrice(result);
