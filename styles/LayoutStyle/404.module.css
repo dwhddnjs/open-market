@@ -1,0 +1,53 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desc {
+  margin-left: 53px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.desc h2 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  margin-bottom: 20px;
+}
+
+.desc p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+  margin-bottom: 40px;
+}
+
+.btnContainer button {
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: #21bf48;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  border: none;
+}
+
+.btnContainer button:last-child {
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #767676;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  border: 1px solid #c4c4c4;
+  margin-left: 14px;
+}
