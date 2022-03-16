@@ -1,8 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import errorStyles from "../styles/LayoutStyle/404.module.css";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Custom404() {
+  const router = useRouter();
+
+  const goBack = () => {
+    router.back();
+  };
+
   return (
     <div className={errorStyles.container}>
       <Image src="/404.png" width={276} height={236} />
@@ -13,8 +21,12 @@ function Custom404() {
           <br /> 웹 주소가 올바른지 확인해 주세요.
         </p>
         <div className={errorStyles.btnContainer}>
-          <button>메인으로</button>
-          <button>이전 페이지</button>
+          <Link href="/">
+            <button>
+              <a>메인으로</a>
+            </button>
+          </Link>
+          <button onClick={goBack}>이전 페이지</button>
         </div>
       </div>
     </div>
